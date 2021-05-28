@@ -23,7 +23,7 @@ public class preparadores {
     public preparadores() {
     }
 
-    public preparadores(String nombre, String apellido, String nacionalidad, int edad, int id, int añosc, String especialidad, String nombretitulo) {
+    public preparadores(String nombre, String apellido, String nacionalidad, int edad, int id, int añosc, String especialidad) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacionalidad = nacionalidad;
@@ -31,7 +31,7 @@ public class preparadores {
         this.id = id;
         this.añosc = añosc;
         this.especialidad = especialidad;
-        this.nombretitulo = nombretitulo;
+        
     }
 
     public String getNombre() {

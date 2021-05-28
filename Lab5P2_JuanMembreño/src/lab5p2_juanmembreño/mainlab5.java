@@ -6,6 +6,8 @@
 package lab5p2_juanmembreño;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -62,41 +64,43 @@ public class mainlab5 extends javax.swing.JFrame {
         ecantcopas = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jd_preparadores = new javax.swing.JDialog();
-        jTextField23 = new javax.swing.JTextField();
+        papellido = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
+        pnacionalidad = new javax.swing.JTextField();
+        pedad = new javax.swing.JTextField();
+        pnombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Id = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        pid = new javax.swing.JTextField();
+        panosc = new javax.swing.JTextField();
+        pespecialidad = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
         jd_psicologos = new javax.swing.JDialog();
-        jTextField27 = new javax.swing.JTextField();
+        psapellido = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
+        psnacionalidad = new javax.swing.JTextField();
+        psedad = new javax.swing.JTextField();
+        psnombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField31 = new javax.swing.JTextField();
+        psid = new javax.swing.JTextField();
+        pstitulo = new javax.swing.JTextField();
+        psespecialidad = new javax.swing.JTextField();
+        psinformes = new javax.swing.JTextField();
+        psatendidos = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jMenu3 = new javax.swing.JMenu();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
@@ -113,10 +117,13 @@ public class mainlab5 extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         jtree = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jTree = new javax.swing.JTree();
         jlist = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jl_personas = new javax.swing.JList<>();
+        popupjl = new javax.swing.JPopupMenu();
+        modificar = new javax.swing.JMenuItem();
+        eliminar = new javax.swing.JMenuItem();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -351,7 +358,7 @@ public class mainlab5 extends javax.swing.JFrame {
 
         jLabel24.setText("edad");
 
-        jTextField26.setText(" ");
+        pnombre.setText(" ");
 
         jLabel3.setText("Preparadores");
 
@@ -360,6 +367,13 @@ public class mainlab5 extends javax.swing.JFrame {
         jLabel7.setText("Años de contrato");
 
         jLabel25.setText("Especialidad");
+
+        jButton4.setText("Finalizar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_preparadoresLayout = new javax.swing.GroupLayout(jd_preparadores.getContentPane());
         jd_preparadores.getContentPane().setLayout(jd_preparadoresLayout);
@@ -373,11 +387,11 @@ public class mainlab5 extends javax.swing.JFrame {
                             .addGroup(jd_preparadoresLayout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(30, 30, 30)
-                                .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(papellido, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jd_preparadoresLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(52, 52, 52)
-                                .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jd_preparadoresLayout.createSequentialGroup()
                                 .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23)
@@ -389,17 +403,19 @@ public class mainlab5 extends javax.swing.JFrame {
                                     .addGroup(jd_preparadoresLayout.createSequentialGroup()
                                         .addGap(34, 34, 34)
                                         .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField25, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                            .addComponent(jTextField3)
-                                            .addComponent(jTextField4)))
+                                            .addComponent(pedad, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                            .addComponent(pnacionalidad, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                            .addComponent(pid)
+                                            .addComponent(panosc)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_preparadoresLayout.createSequentialGroup()
                                         .addGap(3, 3, 3)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(pespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jd_preparadoresLayout.createSequentialGroup()
                         .addGap(419, 419, 419)
                         .addComponent(jLabel3)))
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addGap(169, 169, 169))
         );
         jd_preparadoresLayout.setVerticalGroup(
             jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -411,30 +427,35 @@ public class mainlab5 extends javax.swing.JFrame {
                     .addGroup(jd_preparadoresLayout.createSequentialGroup()
                         .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(53, 53, 53)
                         .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(papellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49)
                         .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
-                            .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_preparadoresLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(pedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_preparadoresLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(34, 34, 34)
                         .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Id)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addComponent(jLabel7))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jd_preparadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
 
@@ -446,7 +467,7 @@ public class mainlab5 extends javax.swing.JFrame {
 
         jLabel29.setText("edad");
 
-        jTextField30.setText(" ");
+        psnombre.setText(" ");
 
         jLabel6.setText("Id");
 
@@ -458,7 +479,20 @@ public class mainlab5 extends javax.swing.JFrame {
 
         jLabel33.setText("# jugadores atendidos");
 
+        psid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psidActionPerformed(evt);
+            }
+        });
+
         jLabel34.setText("Psicologos");
+
+        jButton5.setText("Finalizar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_psicologosLayout = new javax.swing.GroupLayout(jd_psicologos.getContentPane());
         jd_psicologos.getContentPane().setLayout(jd_psicologosLayout);
@@ -472,7 +506,9 @@ public class mainlab5 extends javax.swing.JFrame {
                             .addGroup(jd_psicologosLayout.createSequentialGroup()
                                 .addComponent(jLabel33)
                                 .addGap(36, 36, 36)
-                                .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(psatendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(55, 55, 55)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jd_psicologosLayout.createSequentialGroup()
                                     .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,31 +518,31 @@ public class mainlab5 extends javax.swing.JFrame {
                                         .addComponent(jLabel26))
                                     .addGap(29, 29, 29)
                                     .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(psnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(psedad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(psnacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(psapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_psicologosLayout.createSequentialGroup()
                                     .addComponent(jLabel31)
                                     .addGap(28, 28, 28)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(psespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jd_psicologosLayout.createSequentialGroup()
                                     .addComponent(jLabel30)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField7))
+                                    .addComponent(pstitulo))
                                 .addGroup(jd_psicologosLayout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addGap(38, 38, 38)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(psid, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jd_psicologosLayout.createSequentialGroup()
                                 .addComponent(jLabel32)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(psinformes, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jd_psicologosLayout.createSequentialGroup()
                         .addGap(313, 313, 313)
                         .addComponent(jLabel34)))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         jd_psicologosLayout.setVerticalGroup(
             jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,40 +552,44 @@ public class mainlab5 extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel27)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psnacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pstitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psinformes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jd_psicologosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psatendidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(99, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_psicologosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         jMenu3.setText("jMenu3");
@@ -622,7 +662,9 @@ public class mainlab5 extends javax.swing.JFrame {
                 .addContainerGap(199, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jTree1);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Equipo");
+        jTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane1.setViewportView(jTree);
 
         javax.swing.GroupLayout jtreeLayout = new javax.swing.GroupLayout(jtree.getContentPane());
         jtree.getContentPane().setLayout(jtreeLayout);
@@ -642,6 +684,11 @@ public class mainlab5 extends javax.swing.JFrame {
         );
 
         jl_personas.setModel(new DefaultListModel());
+        jl_personas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_personasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jl_personas);
 
         javax.swing.GroupLayout jlistLayout = new javax.swing.GroupLayout(jlist.getContentPane());
@@ -660,6 +707,22 @@ public class mainlab5 extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
         );
+
+        modificar.setText("modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
+        popupjl.add(modificar);
+
+        eliminar.setText("eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+        popupjl.add(eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -684,14 +747,22 @@ public class mainlab5 extends javax.swing.JFrame {
         jMenu9.setText("Administrar");
 
         jMenuItem3.setText("Ver Jtree");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem3);
 
         jMenuItem4.setText("Ver Jlist");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem4);
 
         jMenuBar3.add(jMenu9);
-
-        jMenu1.setText("jMenu1");
         jMenuBar3.add(jMenu1);
 
         setJMenuBar(jMenuBar3);
@@ -735,9 +806,14 @@ public class mainlab5 extends javax.swing.JFrame {
 
         DefaultListModel modelo
                 = (DefaultListModel) jl_personas.getModel();
-         modelo.addElement(new jugadores(jnombre.getText(),japellido.getText(),jnacionalidad.getText(),(Integer)jedad.getText(),(Integer)jnumerojug.getText(),(Integer)janos.getText()));  
+        modelo.addElement(new jugadores(jnombre.getText(), japellido.getText(), jnacionalidad.getText(), Integer.parseInt(jedad.getText()), Integer.parseInt(jnumerojug.getText()), Integer.parseInt(janos.getText())));
         jl_personas.setModel(modelo);
-
+        
+        
+        //jtre
+       // DefaultTreeModel m= (DefaultTreeModel) jtree.getModel();
+       // DefaultM
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void ecantcopasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecantcopasActionPerformed
@@ -745,11 +821,71 @@ public class mainlab5 extends javax.swing.JFrame {
     }//GEN-LAST:event_ecantcopasActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-         DefaultListModel modelo
+        DefaultListModel modelo
                 = (DefaultListModel) jl_personas.getModel();
-         modelo.addElement(new entrenadores(enombre.getText(),eapellido.getText(),enacionalidad.getText(),(Integer)eedad.getText(),(Integer)eanosc.getText(),(Integer)ecantcopas.getText()));  
+
+        modelo.addElement(new entrenadores(enombre.getText(), eapellido.getText(), enacionalidad.getText(), Integer.parseInt(eedad.getText()), Integer.parseInt(eanosc.getText()), Integer.parseInt(ecantcopas.getText())));
         jl_personas.setModel(modelo);
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        DefaultListModel modelo
+                = (DefaultListModel) jl_personas.getModel();
+
+        modelo.addElement(new preparadores(pnombre.getText(), papellido.getText(), pnacionalidad.getText(), Integer.parseInt(pedad.getText()), Integer.parseInt(pid.getText()), Integer.parseInt(panosc.getText()), pespecialidad.getText()));
+        jl_personas.setModel(modelo);
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void psidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psidActionPerformed
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        DefaultListModel modelo
+                = (DefaultListModel) jl_personas.getModel();
+
+        modelo.addElement(new psicologos(psnombre.getText(), psapellido.getText(), psnacionalidad.getText(), Integer.parseInt(psedad.getText()), pstitulo.getText(), Integer.parseInt(psid.getText()), psespecialidad.getText()));
+        jl_personas.setModel(modelo);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        abrejl();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jl_personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_personasMouseClicked
+       if(jl_personas.getSelectedIndex()>=0){
+           if(evt.isMetaDown()){
+               popupjl.show(evt.getComponent(),evt.getX(),evt.getY());
+           }
+       }
+    }//GEN-LAST:event_jl_personasMouseClicked
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        if(jl_personas.getSelectedIndex()>=0){
+            DefaultListModel modelolista=(DefaultListModel) jl_personas.getModel();
+            ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setNombre(JOptionPane.showInputDialog("Nombre"));
+            
+            modelolista=(DefaultListModel) jl_personas.getModel();
+            ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setApellido(JOptionPane.showInputDialog("Apellido"));
+            
+            modelolista=(DefaultListModel) jl_personas.getModel();
+            ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setApellido(JOptionPane.showInputDialog("nacionalidad"));
+            
+            jl_personas.setModel(modelolista);
+        }
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+            if(jl_personas.getSelectedIndex()>=0){
+              DefaultListModel modelolista=(DefaultListModel) jl_personas.getModel();
+              modelolista.remove(jl_personas.getSelectedIndex());
+              jl_personas.setModel(modelolista);
+            }
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       abrejtree();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -821,6 +957,20 @@ public class mainlab5 extends javax.swing.JFrame {
         jd_agregar.setVisible(true);
     }
 
+    private void abrejl() {
+        jlist.setModal(true);
+        jlist.pack();
+        jlist.setLocationRelativeTo(this);
+        jlist.setVisible(true);
+    }
+    private void abrejtree() {
+        jtree.setModal(true);
+        jtree.pack();
+        jtree.setLocationRelativeTo(this);
+        jtree.setVisible(true);
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Id;
     private javax.swing.JRadioButton be;
@@ -833,11 +983,14 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField eapellido;
     private javax.swing.JTextField ecantcopas;
     private javax.swing.JTextField eedad;
+    private javax.swing.JMenuItem eliminar;
     private javax.swing.JTextField enacionalidad;
     private javax.swing.JTextField enombre;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -885,23 +1038,7 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTree jTree;
     private javax.swing.JTextField janos;
     private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcantp;
@@ -917,5 +1054,23 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField jnombre;
     private javax.swing.JTextField jnumerojug;
     private javax.swing.JDialog jtree;
+    private javax.swing.JMenuItem modificar;
+    private javax.swing.JTextField panosc;
+    private javax.swing.JTextField papellido;
+    private javax.swing.JTextField pedad;
+    private javax.swing.JTextField pespecialidad;
+    private javax.swing.JTextField pid;
+    private javax.swing.JTextField pnacionalidad;
+    private javax.swing.JTextField pnombre;
+    private javax.swing.JPopupMenu popupjl;
+    private javax.swing.JTextField psapellido;
+    private javax.swing.JTextField psatendidos;
+    private javax.swing.JTextField psedad;
+    private javax.swing.JTextField psespecialidad;
+    private javax.swing.JTextField psid;
+    private javax.swing.JTextField psinformes;
+    private javax.swing.JTextField psnacionalidad;
+    private javax.swing.JTextField psnombre;
+    private javax.swing.JTextField pstitulo;
     // End of variables declaration//GEN-END:variables
 }
