@@ -7,6 +7,7 @@ package lab5p2_juanmembreño;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -116,14 +117,17 @@ public class mainlab5 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jtree = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree = new javax.swing.JTree();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         jlist = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jl_personas = new javax.swing.JList<>();
         popupjl = new javax.swing.JPopupMenu();
         modificar = new javax.swing.JMenuItem();
         eliminar = new javax.swing.JMenuItem();
+        popupjtree = new javax.swing.JPopupMenu();
+        modificarjtree = new javax.swing.JMenuItem();
+        eliminarjtree = new javax.swing.JMenuItem();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -662,25 +666,25 @@ public class mainlab5 extends javax.swing.JFrame {
                 .addContainerGap(199, Short.MAX_VALUE))
         );
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Equipo");
-        jTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jTree1);
 
         javax.swing.GroupLayout jtreeLayout = new javax.swing.GroupLayout(jtree.getContentPane());
         jtree.getContentPane().setLayout(jtreeLayout);
         jtreeLayout.setHorizontalGroup(
             jtreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jtreeLayout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(300, Short.MAX_VALUE))
+                .addGap(191, 191, 191)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jtreeLayout.setVerticalGroup(
             jtreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jtreeLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         jl_personas.setModel(new DefaultListModel());
@@ -723,6 +727,28 @@ public class mainlab5 extends javax.swing.JFrame {
             }
         });
         popupjl.add(eliminar);
+
+        popupjtree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                popupjtreeMouseClicked(evt);
+            }
+        });
+
+        modificarjtree.setText("modificar");
+        modificarjtree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modificarjtreeMouseClicked(evt);
+            }
+        });
+        popupjtree.add(modificarjtree);
+
+        eliminarjtree.setText("eliminar");
+        eliminarjtree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminarjtreeMouseClicked(evt);
+            }
+        });
+        popupjtree.add(eliminarjtree);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -808,12 +834,15 @@ public class mainlab5 extends javax.swing.JFrame {
                 = (DefaultListModel) jl_personas.getModel();
         modelo.addElement(new jugadores(jnombre.getText(), japellido.getText(), jnacionalidad.getText(), Integer.parseInt(jedad.getText()), Integer.parseInt(jnumerojug.getText()), Integer.parseInt(janos.getText())));
         jl_personas.setModel(modelo);
-        
-        
+
         //jtre
-       // DefaultTreeModel m= (DefaultTreeModel) jtree.getModel();
-       // DefaultM
-        
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_jugador;
+        nodo_jugador = new DefaultMutableTreeNode(new jugadores(jnombre.getText(), japellido.getText(), jnacionalidad.getText(), Integer.parseInt(jedad.getText()), Integer.parseInt(jnumerojug.getText()), Integer.parseInt(janos.getText())));
+        raiz.add(nodo_jugador);
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void ecantcopasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecantcopasActionPerformed
@@ -826,6 +855,14 @@ public class mainlab5 extends javax.swing.JFrame {
 
         modelo.addElement(new entrenadores(enombre.getText(), eapellido.getText(), enacionalidad.getText(), Integer.parseInt(eedad.getText()), Integer.parseInt(eanosc.getText()), Integer.parseInt(ecantcopas.getText())));
         jl_personas.setModel(modelo);
+
+        //jtre
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_entrenador;
+        nodo_entrenador = new DefaultMutableTreeNode(new entrenadores(enombre.getText(), eapellido.getText(), enacionalidad.getText(), Integer.parseInt(eedad.getText()), Integer.parseInt(eanosc.getText()), Integer.parseInt(ecantcopas.getText())));
+        raiz.add(nodo_entrenador);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -834,6 +871,16 @@ public class mainlab5 extends javax.swing.JFrame {
 
         modelo.addElement(new preparadores(pnombre.getText(), papellido.getText(), pnacionalidad.getText(), Integer.parseInt(pedad.getText()), Integer.parseInt(pid.getText()), Integer.parseInt(panosc.getText()), pespecialidad.getText()));
         jl_personas.setModel(modelo);
+
+        //jtree
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_p;
+        nodo_p = new DefaultMutableTreeNode(new preparadores(pnombre.getText(), papellido.getText(), pnacionalidad.getText(), Integer.parseInt(pedad.getText()), Integer.parseInt(pid.getText()), Integer.parseInt(panosc.getText()), pespecialidad.getText()));
+        raiz.add(nodo_p);
+
+
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void psidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psidActionPerformed
@@ -846,6 +893,14 @@ public class mainlab5 extends javax.swing.JFrame {
 
         modelo.addElement(new psicologos(psnombre.getText(), psapellido.getText(), psnacionalidad.getText(), Integer.parseInt(psedad.getText()), pstitulo.getText(), Integer.parseInt(psid.getText()), psespecialidad.getText()));
         jl_personas.setModel(modelo);
+
+        //jtree
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz
+                = (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_ps;
+        nodo_ps = new DefaultMutableTreeNode(new psicologos(psnombre.getText(), psapellido.getText(), psnacionalidad.getText(), Integer.parseInt(psedad.getText()), pstitulo.getText(), Integer.parseInt(psid.getText()), psespecialidad.getText()));
+        raiz.add(nodo_ps);
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -853,39 +908,117 @@ public class mainlab5 extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jl_personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_personasMouseClicked
-       if(jl_personas.getSelectedIndex()>=0){
-           if(evt.isMetaDown()){
-               popupjl.show(evt.getComponent(),evt.getX(),evt.getY());
-           }
-       }
+        if (jl_personas.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                popupjl.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
     }//GEN-LAST:event_jl_personasMouseClicked
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        if(jl_personas.getSelectedIndex()>=0){
-            DefaultListModel modelolista=(DefaultListModel) jl_personas.getModel();
+        if (jl_personas.getSelectedIndex() >= 0) {
+            DefaultListModel modelolista = (DefaultListModel) jl_personas.getModel();
             ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setNombre(JOptionPane.showInputDialog("Nombre"));
-            
-            modelolista=(DefaultListModel) jl_personas.getModel();
+
+            modelolista = (DefaultListModel) jl_personas.getModel();
             ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setApellido(JOptionPane.showInputDialog("Apellido"));
-            
-            modelolista=(DefaultListModel) jl_personas.getModel();
+
+            modelolista = (DefaultListModel) jl_personas.getModel();
             ((jugadores) modelolista.get(jl_personas.getSelectedIndex())).setApellido(JOptionPane.showInputDialog("nacionalidad"));
-            
+
             jl_personas.setModel(modelolista);
         }
     }//GEN-LAST:event_modificarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-            if(jl_personas.getSelectedIndex()>=0){
-              DefaultListModel modelolista=(DefaultListModel) jl_personas.getModel();
-              modelolista.remove(jl_personas.getSelectedIndex());
-              jl_personas.setModel(modelolista);
-            }
+        if (jl_personas.getSelectedIndex() >= 0) {
+            DefaultListModel modelolista = (DefaultListModel) jl_personas.getModel();
+            modelolista.remove(jl_personas.getSelectedIndex());
+            jl_personas.setModel(modelolista);
+        }
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       abrejtree();
+        abrejtree();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void popupjtreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_popupjtreeMouseClicked
+        if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            int row = jTree1.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            jTree1.setSelectionRow(row);
+            Object v1 = jTree1.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+
+            if (nodo_seleccionado.getUserObject() instanceof jugadores) {
+                jugadorseleccionado
+                        = (jugadores) nodo_seleccionado.
+                                getUserObject();
+                popupjtree.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            } else if (nodo_seleccionado.getUserObject() instanceof entrenadores) {
+                entrenadorsel
+                        = (entrenadores) nodo_seleccionado.
+                                getUserObject();
+                popupjtree.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            } else if (nodo_seleccionado.getUserObject() instanceof preparadores) {
+                preparadors
+                        = (preparadores) nodo_seleccionado.
+                                getUserObject();
+                popupjtree.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            } else if (nodo_seleccionado.getUserObject() instanceof psicologos) {
+                pss
+                        = (psicologos) nodo_seleccionado.
+                                getUserObject();
+                popupjtree.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_popupjtreeMouseClicked
+
+    private void eliminarjtreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminarjtreeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarjtreeMouseClicked
+
+    private void modificarjtreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarjtreeMouseClicked
+         DefaultTreeModel m=(DefaultTreeModel) jTree1.getModel();
+         jugadorseleccionado.setNombre(JOptionPane.showInputDialog("Nombre"));
+        
+         m=(DefaultTreeModel) jTree1.getModel();
+         entrenadorsel.setNombre(JOptionPane.showInputDialog("Nombre"));
+         
+         
+          m=(DefaultTreeModel) jTree1.getModel();
+         preparadors.setNombre(JOptionPane.showInputDialog("Nombre"));
+         
+           m=(DefaultTreeModel) jTree1.getModel();
+         pss.setNombre(JOptionPane.showInputDialog("Nombre"));
+         
+         
+          m=(DefaultTreeModel) jTree1.getModel();
+         jugadorseleccionado.setApellido(JOptionPane.showInputDialog("Apellido"));
+         
+           m=(DefaultTreeModel) jTree1.getModel();
+         entrenadorsel.setApellido(JOptionPane.showInputDialog("Apellido"));
+         
+         
+          m=(DefaultTreeModel) jTree1.getModel();
+         preparadors.setApellido(JOptionPane.showInputDialog("Apellido"));
+         
+           m=(DefaultTreeModel) jTree1.getModel();
+         pss.setApellido(JOptionPane.showInputDialog("Apellido"));
+         
+          m=(DefaultTreeModel) jTree1.getModel();
+         jugadorseleccionado.setNacionalidad(JOptionPane.showInputDialog("Nacionalidad"));
+         
+         
+         
+         m.reload();
+          
+    }//GEN-LAST:event_modificarjtreeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -963,6 +1096,7 @@ public class mainlab5 extends javax.swing.JFrame {
         jlist.setLocationRelativeTo(this);
         jlist.setVisible(true);
     }
+
     private void abrejtree() {
         jtree.setModal(true);
         jtree.pack();
@@ -984,6 +1118,7 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField ecantcopas;
     private javax.swing.JTextField eedad;
     private javax.swing.JMenuItem eliminar;
+    private javax.swing.JMenuItem eliminarjtree;
     private javax.swing.JTextField enacionalidad;
     private javax.swing.JTextField enombre;
     private javax.swing.JButton jButton1;
@@ -1036,9 +1171,9 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTree jTree;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTree jTree1;
     private javax.swing.JTextField janos;
     private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcantp;
@@ -1055,6 +1190,7 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField jnumerojug;
     private javax.swing.JDialog jtree;
     private javax.swing.JMenuItem modificar;
+    private javax.swing.JMenuItem modificarjtree;
     private javax.swing.JTextField panosc;
     private javax.swing.JTextField papellido;
     private javax.swing.JTextField pedad;
@@ -1063,6 +1199,7 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField pnacionalidad;
     private javax.swing.JTextField pnombre;
     private javax.swing.JPopupMenu popupjl;
+    private javax.swing.JPopupMenu popupjtree;
     private javax.swing.JTextField psapellido;
     private javax.swing.JTextField psatendidos;
     private javax.swing.JTextField psedad;
@@ -1073,4 +1210,10 @@ public class mainlab5 extends javax.swing.JFrame {
     private javax.swing.JTextField psnombre;
     private javax.swing.JTextField pstitulo;
     // End of variables declaration//GEN-END:variables
+DefaultMutableTreeNode nodo_seleccionado;
+    jugadores jugadorseleccionado;
+    entrenadores entrenadorsel;
+    preparadores preparadors;
+    psicologos pss;
+
 }

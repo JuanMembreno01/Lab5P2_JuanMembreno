@@ -9,7 +9,7 @@ package lab5p2_juanmembreño;
  *
  * @author usuario
  */
-public class preparadores {
+public class preparadores  {
 
     private String nombre;
     private String apellido;
